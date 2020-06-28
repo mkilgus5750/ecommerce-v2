@@ -1,7 +1,8 @@
-import React, { useState } from "react"
-import Transition from "../../components/Transition/Transition"
-import { Outline } from "../../components/Icons/Icons"
+import React, { useState } from 'react'
+import Transition from '../../components/Transition/Transition'
+import { Outline } from '../../components/Icons/Icons'
 import { Link } from 'gatsby'
+import Footer from '../../components/Footer/Footer'
 
 export default function Layout({ children, title }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
@@ -23,7 +24,7 @@ export default function Layout({ children, title }) {
   return (
     <div className="flex h-screen overflow-hidden bg-white">
       {/* Off-canvas menu for mobile */}
-      <div className={`${hideSidebarMenu ? "hidden " : ""}md:hidden`}>
+      <div className={`${hideSidebarMenu ? 'hidden ' : ''}md:hidden`}>
         <div className="fixed inset-0 z-40 flex">
           <Transition
             enter="transition-opacity ease-linear duration-300"
@@ -63,39 +64,44 @@ export default function Layout({ children, title }) {
               </div>
               <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
                 <div className="flex items-center flex-shrink-0 px-4">
-                  <p className="text-white" style={{ fontFamily: 'Impact, fantasy' }}>AbsolutelyFlutiful</p>
+                  <p
+                    className="text-white"
+                    style={{ fontFamily: 'Impact, fantasy' }}
+                  >
+                    AbsolutelyFlutiful
+                  </p>
                 </div>
                 <nav className="flex-1 px-2 mt-5 bg-blue-900">
-              <Link
-                to="/"
-                className="flex items-center px-2 py-2 mt-1 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-100 focus:text-black"
-                activeclassName='active'
-              >
-                <Outline.Home className="w-6 h-6 mr-3 text-white transition duration-150 ease-in-out group-hover:text-gray-500 group-focus:text-gray-500" />
-                Home
-              </Link>
-              <Link
-                to="/products"
-                className="flex items-center px-2 py-2 mt-1 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-100 focus:text-black"
-              >
-                <Outline.ShoppingBag className="w-6 h-6 mr-3 text-white transition duration-150 ease-in-out group-hover:text-gray-500 group-focus:text-gray-600" />
-                All Inventory
-              </Link>
-              <Link
-                to="/brands"
-                className="flex items-center px-2 py-2 mt-1 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-100 focus:text-black"
-              >
-                <Outline.Tag className="w-6 h-6 mr-3 text-white transition duration-150 ease-in-out group-hover:text-gray-500 group-focus:text-gray-500 " />
-                Search by Brand
-              </Link>
-              <Link
-                to="/productList"
-                className="flex items-center px-2 py-2 mt-1 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-100 focus:text-black"
-              >
-                <Outline.Tag className="w-6 h-6 mr-3 text-white transition duration-150 ease-in-out group-hover:text-gray-500 group-focus:text-gray-500 " />
-                Search by Product
-              </Link>
-            </nav>
+                  <Link
+                    to="/"
+                    className="flex items-center px-2 py-2 mt-1 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-100 focus:text-black"
+                    activeclassName="active"
+                  >
+                    <Outline.Home className="w-6 h-6 mr-3 text-white transition duration-150 ease-in-out group-hover:text-gray-500 group-focus:text-gray-500" />
+                    Home
+                  </Link>
+                  <Link
+                    to="/products"
+                    className="flex items-center px-2 py-2 mt-1 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-100 focus:text-black"
+                  >
+                    <Outline.ShoppingBag className="w-6 h-6 mr-3 text-white transition duration-150 ease-in-out group-hover:text-gray-500 group-focus:text-gray-600" />
+                    All Inventory
+                  </Link>
+                  <Link
+                    to="/brands"
+                    className="flex items-center px-2 py-2 mt-1 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-100 focus:text-black"
+                  >
+                    <Outline.Tag className="w-6 h-6 mr-3 text-white transition duration-150 ease-in-out group-hover:text-gray-500 group-focus:text-gray-500 " />
+                    Search by Brand
+                  </Link>
+                  <Link
+                    to="/productList"
+                    className="flex items-center px-2 py-2 mt-1 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-100 focus:text-black"
+                  >
+                    <Outline.Tag className="w-6 h-6 mr-3 text-white transition duration-150 ease-in-out group-hover:text-gray-500 group-focus:text-gray-500 " />
+                    Search by Product
+                  </Link>
+                </nav>
               </div>
             </div>
           </Transition>
@@ -111,14 +117,19 @@ export default function Layout({ children, title }) {
         <div className="flex flex-col w-64 bg-blue-900 border-r border-gray-200">
           <div className="flex flex-col flex-1 h-0 pt-5 pb-4 overflow-y-auto">
             <div className="flex items-center flex-shrink-0 px-4">
-              <p className="text-white" style={{ fontFamily: 'Impact, fantasy' }}>AbsolutelyFlutiful</p>
+              <p
+                className="text-white"
+                style={{ fontFamily: 'Impact, fantasy' }}
+              >
+                AbsolutelyFlutiful
+              </p>
             </div>
             {/* Sidebar component, swap this element with another sidebar if you like */}
             <nav className="flex-1 px-2 mt-5 bg-blue-900">
               <Link
                 to="/"
                 className="flex items-center px-2 py-2 mt-1 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-100 focus:text-black"
-                activeclassName='active'
+                activeclassName="active"
               >
                 <Outline.Home className="w-6 h-6 mr-3 text-white transition duration-150 ease-in-out group-hover:text-gray-500 group-focus:text-gray-500" />
                 Home
@@ -159,17 +170,20 @@ export default function Layout({ children, title }) {
           </button>
         </div>
         <main
-          className="relative z-0 flex-1 pt-2 pb-6 overflow-y-auto focus:outline-none md:py-6"
+          className="relative z-0 flex flex-col flex-1 pt-2 overflow-y-auto focus:outline-none md:pt-6"
           tabindex="0"
         >
-          <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
-            <h1 className="text-2xl font-semibold text-gray-900">{title}</h1>
+          <div className="flex-grow">
+            <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
+              <h1 className="text-2xl font-semibold text-gray-900">{title}</h1>
+            </div>
+            <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
+              {/* Replace with your content */}
+              <div className="py-4">{children}</div>
+              {/* /End replace */}
+            </div>
           </div>
-          <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
-            {/* Replace with your content */}
-            <div className="py-4">{children}</div>
-            {/* /End replace */}
-          </div>
+          <Footer />
         </main>
       </div>
     </div>

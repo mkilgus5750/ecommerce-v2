@@ -10,27 +10,22 @@ const ProductPage = ({ data }) => {
   return (
     <div>
       <SEO title={product.title} description={product.description} />
-          <div className="mt-2 bg-indigo-200 text-gray-500 p-4 border rounded lg">
-            <div className="pb-4">{product.title}</div>
-              <div className="pb-4">
-                {product.images.map(image => (
-                  <Img
-                    fluid={image.localFile.childImageSharp.fluid}
-                    key={image.id}
-                    alt={product.title}
-                  />
-                ))}
-              </div>
-              <div>
-                Description:
-                <div
-                  className="pb-4 pt-4 "
-                  dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-                />
-                <ProductForm product={product} />
-              </div>
-          </div>
+      <div className="grid p-4 mt-2 text-gray-500 bg-indigo-200 border rounded lg:col-gap-4 lg:grid-cols-2 lg">
+        <Img
+          fluid={product.images[0].localFile.childImageSharp.fluid}
+          key={product.images[0].id}
+          alt={product.title}
+        />
+        <div>
+          <h1 className="pb-4">{product.title}</h1>
+          <div
+            className="pt-4 pb-4 "
+            dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
+          />
+          <ProductForm product={product} />
+        </div>
       </div>
+    </div>
   )
 }
 

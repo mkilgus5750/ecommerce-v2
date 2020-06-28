@@ -2,11 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
-import Sidebar from "../templates/Sidebar/Sidebar"
+import Sidebar from '../templates/Sidebar/Sidebar'
 import ContextProvider from '~/provider/ContextProvider'
 import Footer from '../components/Footer/Footer.js'
 import { GlobalStyle } from '~/utils/styles'
 import Navigation from '~/components/Navigation'
+import Styling from './Styling'
 
 const Wrapper = styled.div`
   margin: 0 auto;
@@ -17,7 +18,8 @@ const Wrapper = styled.div`
 const Layout = ({ children }) => {
   return (
     <ContextProvider>
-      <GlobalStyle />
+      {/* <GlobalStyle /> */}
+      <Styling />
       <Sidebar>
         <StaticQuery
           query={graphql`
@@ -32,8 +34,7 @@ const Layout = ({ children }) => {
           render={data => (
             <>
               <Navigation siteTitle={data.site.siteMetadata.title} />
-                {children}
-                <Footer />
+              {children}
             </>
           )}
         />

@@ -15,7 +15,7 @@ const LineItem = props => {
     <img
       src={item.variant.image.src}
       alt={`${item.title} product shot`}
-      height="60px"
+      className="h-64"
     />
   ) : null
 
@@ -30,19 +30,25 @@ const LineItem = props => {
   }
 
   return (
-    <div className="">
-      {console.log(item)}
+    <div className="grid pb-4 lg:grid-cols-2 lg:col-gap-4">
       <Link to={`/product/${item.variant.product.handle}/`}>
         {variantImage}
       </Link>
-      <p>
-        {item.title}
-        {`  `}
-        {item.variant.title === !'Default Title' ? item.variant.title : ''}
-      </p>
-    
-      <p>Quantity: {item.quantity}</p>
-      <button className="bg-red-500 p-2 border rounded mt-2 mb-2" onClick={handleRemove}>Remove</button>
+      <div>
+        <p>
+          {item.title}
+          {`  `}
+          {item.variant.title === !'Default Title' ? item.variant.title : ''}
+        </p>
+
+        <p>Quantity: {item.quantity}</p>
+        <button
+          className="p-2 mt-2 mb-2 bg-red-500 border rounded"
+          onClick={handleRemove}
+        >
+          Remove
+        </button>
+      </div>
     </div>
   )
 }
