@@ -75,7 +75,7 @@ export default function Layout({ children, title }) {
                   <Link
                     to="/"
                     className="flex items-center px-2 py-2 mt-1 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-100 focus:text-black"
-                    activeclassName="active"
+                    activeClassName="active"
                   >
                     <Outline.Home className="w-6 h-6 mr-3 text-white transition duration-150 ease-in-out group-hover:text-gray-500 group-focus:text-gray-500" />
                     Home
@@ -129,7 +129,7 @@ export default function Layout({ children, title }) {
               <Link
                 to="/"
                 className="flex items-center px-2 py-2 mt-1 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-100 focus:text-black"
-                activeclassName="active"
+                activeClassName="active"
               >
                 <Outline.Home className="w-6 h-6 mr-3 text-white transition duration-150 ease-in-out group-hover:text-gray-500 group-focus:text-gray-500" />
                 Home
@@ -171,7 +171,7 @@ export default function Layout({ children, title }) {
         </div>
         <main
           className="relative z-0 flex flex-col flex-1 pt-2 overflow-y-auto focus:outline-none md:pt-6"
-          tabindex="0"
+          tabIndex="0"
         >
           <div className="flex-grow">
             <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">

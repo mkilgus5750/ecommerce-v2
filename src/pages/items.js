@@ -1,19 +1,19 @@
-import React, { useContext } from 'react'
+import React from 'react'
+import Items from '../components/Items/Items'
+import Item from '../components/Item/Item'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import StoreContext from '~/context/StoreContext'
 import { Img } from '~/utils/styles'
-import Items from '../components/Items/Items'
-import Item from '../components/Item/Item'
 import Seo from '../components/seo'
 
-const MurumatsuPage = () => {
+export default function ItemsPage() {
   const {
     store: { checkout },
-  } = useContext(StoreContext)
+  } = React.useContext(StoreContext)
   const data = useStaticQuery(
     graphql`
       query {
-        allShopifyProduct(filter: { vendor: { eq: "Murumatsu" } }) {
+        allShopifyProduct {
           edges {
             node {
               id
@@ -49,9 +49,9 @@ const MurumatsuPage = () => {
     }).format(parseFloat(price ? price : 0))
 
   return (
-    <React.Fragment>
+    <div>
       <Seo title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      <Items title="Muramatsu">
+      <Items title="Items">
         {data.allShopifyProduct ? (
           data.allShopifyProduct.edges.map(edge => (
             <Item
@@ -64,24 +64,6 @@ const MurumatsuPage = () => {
           <p>No Products found!</p>
         )}
       </Items>
-    </React.Fragment>
+    </div>
   )
 }
-
-export default MurumatsuPage
-
-// import React from 'react'
-// import { Link } from 'gatsby'
-
-// import SEO from '~/components/seo'
-// import MuramatsuGrid from '~/components/MurumatsuGrid'
-
-// const MuramatsuPage = () => (
-//   <>
-//     <SEO title="Muramatsu" keywords={[`gatsby`, `application`, `react`]} />
-//     <h1 className="grid justify-center text-4xl">Muramatsu</h1>
-//     <MuramatsuGrid />
-//   </>
-// )
-
-// export default MuramatsuPage
