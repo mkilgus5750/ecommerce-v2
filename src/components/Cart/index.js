@@ -19,14 +19,14 @@ const Cart = () => {
   return (
     <div>
       {lineItems}
-      <h2>Subtotal</h2>
-      <p>$ {checkout.subtotalPrice}</p>
+      <h2 >Subtotal</h2>
+      <p className="border-t-2 border-gray-300">$ {checkout.subtotalPrice}</p>
       <br />
-      <h2>Taxes</h2>
-      <p>$ {checkout.totalTax}</p>
+      <h2 >Taxes</h2>
+      <p className="border-t-2 border-gray-300">$ {checkout.totalTax}</p>
       <br />
       <h2>Total</h2>
-      <p>$ {checkout.totalPrice}</p>
+      <p className="border-t-2 border-gray-300">$ {checkout.totalPrice}</p>
       <br />
       <button
         onClick={handleCheckout}

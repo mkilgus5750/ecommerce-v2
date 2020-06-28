@@ -30,7 +30,7 @@ const LineItem = props => {
   }
 
   return (
-    <Wrapper>
+    <div className="">
       {console.log(item)}
       <Link to={`/product/${item.variant.product.handle}/`}>
         {variantImage}
@@ -40,10 +40,10 @@ const LineItem = props => {
         {`  `}
         {item.variant.title === !'Default Title' ? item.variant.title : ''}
       </p>
-      {selectedOptions}
-      {item.quantity}
-      <button onClick={handleRemove}>Remove</button>
-    </Wrapper>
+    
+      <p>Quantity: {item.quantity}</p>
+      <button className="bg-red-500 p-2 border rounded mt-2 mb-2" onClick={handleRemove}>Remove</button>
+    </div>
   )
 }
 

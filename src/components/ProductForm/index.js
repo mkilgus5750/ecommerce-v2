@@ -96,29 +96,9 @@ const ProductForm = ({ product }) => {
   }).format(variant.price)
 
   return (
-    <>
-      <h3>{price}</h3>
-      {options.map(({ id, name, values }, index) => (
-        <React.Fragment key={id}>
-          <label htmlFor={name}>{name} </label>
-          <select
-            name={name}
-            key={id}
-            onChange={event => handleOptionChange(index, event)}
-          >
-            {values.map(value => (
-              <option
-                value={value}
-                key={`${name}-${value}`}
-                disabled={checkDisabled(name, value)}
-              >
-                {value}
-              </option>
-            ))}
-          </select>
-          <br />
-        </React.Fragment>
-      ))}
+    <div className="">
+      <h3 className="text-indigo-900 text-xl pb-4">{price}</h3>
+      
       <label htmlFor="quantity">Quantity </label>
       <input
         type="number"
@@ -131,6 +111,7 @@ const ProductForm = ({ product }) => {
       />
       <br />
       <button
+        className="bg-green-400 mt-4 p-2 border rounded-lg focus:bg-blue-900 hover:bg-green-600 hover:text-white focus:outline-none"
         type="submit"
         disabled={!available || adding}
         onClick={handleAddToCart}
@@ -138,7 +119,7 @@ const ProductForm = ({ product }) => {
         Add to Cart
       </button>
       {!available && <p>This Product is out of Stock!</p>}
-    </>
+    </div>
   )
 }
 

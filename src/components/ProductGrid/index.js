@@ -1,13 +1,7 @@
 import React, { useContext } from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
-
+import './index.css'
 import StoreContext from '~/context/StoreContext'
-import {
-  Grid,
-  Product,
-  Title,
-  PriceTag
-} from './styles'
 import { Img } from '~/utils/styles'
 
 const ProductGrid = () => {
@@ -15,12 +9,8 @@ const ProductGrid = () => {
   const { allShopifyProduct } = useStaticQuery(
     graphql`
       query {
-        allShopifyProduct(
-          sort: {
-            fields: [createdAt]
-            order: DESC
-          }
-        ) {
+        allShopifyProduct
+        {
           edges {
             node {
               id
@@ -55,23 +45,25 @@ const ProductGrid = () => {
   }).format(parseFloat(price ? price : 0))
 
   return (
-    <Grid>
+    <div className="products_preview_container">
       {allShopifyProduct.edges
         ? allShopifyProduct.edges.map(({ node: { id, handle, title, images: [firstImage], variants: [firstVariant] } }) => (
-          <Product key={id} >
-            <Link to={`/product/${handle}/`}>
-              {firstImage && firstImage.localFile &&
-                (<Img
-                  fluid={firstImage.localFile.childImageSharp.fluid}
-                  alt={handle}
-                />)}
-            </Link>
-            <Title>{title}</Title>
-            <PriceTag>{getPrice(firstVariant.price)}</PriceTag>
-          </Product>
+          <div key={id} className=" p-2">
+            <div className="bg-indigo-200 p-4 text-gray-500 border rounded-lg">
+              <Link to={`/product/${handle}/`}>
+                {firstImage && firstImage.localFile &&
+                  (<Img
+                    fluid={firstImage.localFile.childImageSharp.fluid}
+                    alt={handle}
+                  />)}
+                <p>{title}</p>
+                <p className="text-indigo-900 text-xl pt-4 pb-4">{getPrice(firstVariant.price)}</p>
+              </Link>
+            </div>
+          </div>
         ))
         : <p>No Products found!</p>}
-    </Grid>
+    </div>
   )
 }
 

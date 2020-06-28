@@ -1,14 +1,9 @@
 import React, { useContext } from 'react'
 import reduce from 'lodash/reduce'
 import PropTypes from 'prop-types'
-
+import { Outline } from '../../components/Icons/Icons.js'
+import { Link } from 'gatsby'
 import StoreContext from '~/context/StoreContext'
-import {
-	CartCounter, 
-	Container,
-	MenuLink,
-	Wrapper
-} from './styles'
 
 const useQuantity = () => {
 	const { store: {checkout} } = useContext(StoreContext)
@@ -21,21 +16,14 @@ const Navigation = ({ siteTitle }) => {
   const [hasItems, quantity] = useQuantity()
 
 	return(
-		<Wrapper>
-			<Container>
-				<MenuLink to='/'>
-					{siteTitle}
-				</MenuLink>
-				<MenuLink to='/cart'>
-					{hasItems &&
-						<CartCounter>
-							{quantity}
-						</CartCounter>
-					}
-					Cart 🛍
-				</MenuLink>
-			</Container>
-		</Wrapper>
+			<div>
+				<Link to='/cart'>
+					
+					<div className="w-12 h-12 p-2 border border-black rounded mb-2">
+						<Outline.ShoppingCart />
+					</div>
+				</Link>
+			</div>
 	)
 }
 

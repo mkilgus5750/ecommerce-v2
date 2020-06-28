@@ -10,27 +10,33 @@
   "dependencies": {
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.22",
+    "@tailwindcss/ui": "^0.3.0",
     "gatsby": "^2.17.4",
     "gatsby-image": "^2.2.29",
     "gatsby-plugin-google-analytics": "^2.0.13",
     "gatsby-plugin-layout": "^1.0.11",
     "gatsby-plugin-manifest": "^2.2.23",
     "gatsby-plugin-offline": "^3.0.16",
+    "gatsby-plugin-postcss": "^2.3.6",
     "gatsby-plugin-react-helmet": "^3.1.13",
     "gatsby-plugin-root-import": "^2.0.5",
     "gatsby-plugin-sharp": "^2.2.32",
-    "gatsby-source-filesystem": "^2.1.33",
+    "gatsby-source-filesystem": "^2.3.14",
     "gatsby-source-shopify": "^3.0.24",
+    "gatsby-transformer-remark": "^2.8.19",
     "gatsby-transformer-sharp": "^2.3.0",
     "js-yaml": "^3.13.1",
     "lodash": "^4.17.15",
+    "postcss-import": "^12.0.1",
     "prop-types": "^15.7.2",
     "querystringify": "^2.0.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
+    "react-transition-group": "^4.4.1",
     "set-value": "^2.0.1",
-    "shopify-buy": "^2.8.0"
+    "shopify-buy": "^2.8.0",
+    "tailwindcss": "^1.4.6"
   },
   "keywords": [
     "gatsby",
@@ -43,6 +49,7 @@
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
+    "develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
     "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
