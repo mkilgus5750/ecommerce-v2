@@ -19,7 +19,7 @@ export default function Index({
         <Solid.Bell className="w-6 h-6 text-white" />
       </div> */}
 
-      <div className="index__splash">
+      <div className="overflow-scroll index__splash">
         <div className="text-4xl font-normal text-center text-white index__container sm:text-5xl">
           <h1 className="index__title 6xl" style={{ fontFamily: 'fantasy' }}>
             {frontmatter.title}
@@ -36,8 +36,8 @@ export default function Index({
         </div>
       </div>
       <div className="relative text-center on_scroll lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
-        <div className="on_scroll_brands">
-          <div className="flex justify-center">
+        <div className="overflow-scroll on_scroll_brands">
+          <div className=" flex justify-center">
             <img
               className="object-cover pt-2"
               src={sankyoFlute}
