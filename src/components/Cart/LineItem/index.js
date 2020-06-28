@@ -43,7 +43,7 @@ const LineItem = props => {
 
         <p>Quantity: {item.quantity}</p>
         <button
-          className="p-2 mt-2 mb-2 bg-red-500 border rounded"
+          className="p-2 mt-2 mb-2 bg-red-500 border rounded border-red-500"
           onClick={handleRemove}
         >
           Remove

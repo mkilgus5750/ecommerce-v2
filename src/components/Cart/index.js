@@ -29,6 +29,7 @@ const Cart = () => {
       <p className="border-t-2 border-gray-300">$ {checkout.totalPrice}</p>
       <br />
       <button
+        className="bg-yellow-200 p-2 border rounded border-yellow-200"
         onClick={handleCheckout}
         disabled={checkout.lineItems.length === 0}
       >

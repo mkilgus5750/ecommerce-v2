@@ -1,15 +1,71 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React, { useContext } from 'react'
+import { useStaticQuery, graphql, Link } from 'gatsby'
+import StoreContext from '~/context/StoreContext'
+import { Img } from '~/utils/styles'
+import Items from '../components/Items/Items'
+import Item from '../components/Item/Item'
+import Seo from '../components/seo'
 
-import SEO from '~/components/seo'
-import SankyoGrid from '~/components/SankyoGrid'
+const SankyoPage = () => {
+  const {
+    store: { checkout },
+  } = useContext(StoreContext)
+  const data = useStaticQuery(
+    graphql`
+      query {
+        allShopifyProduct(filter: { vendor: { eq: "Sankyo" } }) {
+          edges {
+            node {
+              id
+              title
+              handle
+              createdAt
+              images {
+                id
+                originalSrc
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 910) {
+                      ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                    }
+                  }
+                }
+              }
+              variants {
+                price
+              }
+            }
+          }
+        }
+      }
+    `
+  )
 
-const Sankyo = () => (
-  <>
-    <SEO title="Sankyo" keywords={[`gatsby`, `application`, `react`]} />
-    <h1 className="grid justify-center text-4xl">Sankyo</h1>
-    <SankyoGrid />
-  </>
-)
+  const getPrice = price =>
+    Intl.NumberFormat(undefined, {
+      currency: checkout.currencyCode ? checkout.currencyCode : 'EUR',
+      minimumFractionDigits: 2,
+      style: 'currency',
+    }).format(parseFloat(price ? price : 0))
 
-export default Sankyo
+  return (
+    <React.Fragment>
+      <Seo title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <Items title="Sankyo">
+        {data.allShopifyProduct ? (
+          data.allShopifyProduct.edges.map(edge => (
+            <Item
+              key={edge.node.id}
+              edge={edge}
+              price={getPrice(edge.node.variants[0].price)}
+            />
+          ))
+        ) : (
+          <p>No Products found!</p>
+        )}
+      </Items>
+    </React.Fragment>
+  )
+}
+
+export default SankyoPage

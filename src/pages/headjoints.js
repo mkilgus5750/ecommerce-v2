@@ -1,15 +1,71 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React, { useContext } from 'react'
+import { useStaticQuery, graphql, Link } from 'gatsby'
+import StoreContext from '~/context/StoreContext'
+import { Img } from '~/utils/styles'
+import Items from '../components/Items/Items'
+import Item from '../components/Item/Item'
+import Seo from '../components/seo'
 
-import SEO from '~/components/seo'
-import Headjoints from '~/components/HeadjointGrid'
+const HeadjointPage = () => {
+  const {
+    store: { checkout },
+  } = useContext(StoreContext)
+  const data = useStaticQuery(
+    graphql`
+      query {
+        allShopifyProduct(filter: { productType: { eq: "Headjoint" } }) {
+          edges {
+            node {
+              id
+              title
+              handle
+              createdAt
+              images {
+                id
+                originalSrc
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 910) {
+                      ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                    }
+                  }
+                }
+              }
+              variants {
+                price
+              }
+            }
+          }
+        }
+      }
+    `
+  )
 
-const HeadjointsGrid = () => (
-  <>
-    <SEO title="Miyazawa" keywords={[`gatsby`, `application`, `react`]} />
-    <h1 className="">Miyazawa</h1>
-    <Headjoints />
-  </>
-)
+  const getPrice = price =>
+    Intl.NumberFormat(undefined, {
+      currency: checkout.currencyCode ? checkout.currencyCode : 'EUR',
+      minimumFractionDigits: 2,
+      style: 'currency',
+    }).format(parseFloat(price ? price : 0))
 
-export default HeadjointsGrid
+  return (
+    <React.Fragment>
+      <Seo title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <Items title="Headjoints">
+        {data.allShopifyProduct ? (
+          data.allShopifyProduct.edges.map(edge => (
+            <Item
+              key={edge.node.id}
+              edge={edge}
+              price={getPrice(edge.node.variants[0].price)}
+            />
+          ))
+        ) : (
+          <p>No Products found!</p>
+        )}
+      </Items>
+    </React.Fragment>
+  )
+}
+
+export default HeadjointPage
