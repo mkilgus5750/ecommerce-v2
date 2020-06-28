@@ -92,14 +92,14 @@ export default function Layout({ children, title }) {
                     className="flex items-center px-2 py-2 mt-1 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-100 focus:text-black"
                   >
                     <Outline.Tag className="w-6 h-6 mr-3 text-white transition duration-150 ease-in-out group-hover:text-gray-500 group-focus:text-gray-500 " />
-                    Search by Brand
+                    Browse by Brand
                   </Link>
                   <Link
                     to="/productList"
                     className="flex items-center px-2 py-2 mt-1 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-100 focus:text-black"
                   >
-                    <Outline.Tag className="w-6 h-6 mr-3 text-white transition duration-150 ease-in-out group-hover:text-gray-500 group-focus:text-gray-500 " />
-                    Search by Product
+                    <Outline.Collection className="w-6 h-6 mr-3 text-white transition duration-150 ease-in-out group-hover:text-gray-500 group-focus:text-gray-500 " />
+                    Browse by Product
                   </Link>
                 </nav>
               </div>
@@ -146,14 +146,14 @@ export default function Layout({ children, title }) {
                 className="flex items-center px-2 py-2 mt-1 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-100 focus:text-black"
               >
                 <Outline.Tag className="w-6 h-6 mr-3 text-white transition duration-150 ease-in-out group-hover:text-gray-500 group-focus:text-gray-500 " />
-                Search by Brand
+                Browse by Brand
               </Link>
               <Link
                 to="/productList"
                 className="flex items-center px-2 py-2 mt-1 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:bg-gray-100 focus:text-black"
               >
-                <Outline.Tag className="w-6 h-6 mr-3 text-white transition duration-150 ease-in-out group-hover:text-gray-500 group-focus:text-gray-500 " />
-                Search by Product
+                <Outline.Collection className="w-6 h-6 mr-3 text-white transition duration-150 ease-in-out group-hover:text-gray-500 group-focus:text-gray-500 " />
+                Browse by Product
               </Link>
             </nav>
           </div>
