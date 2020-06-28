@@ -25,15 +25,17 @@ export function Taco({ edge }) {
 }
 
 export function TacosPage() {
-  ;<div>
-    <Seo title="TACO TUESDAY" />
-    <Tacos
-      title="Terrific Tacos"
-      description="Every day is taco ipsum tuesday. Fish tacos with cabbage slaw and a side of chips and guac. TACOS!! It’s taco Tuesday Monday. It’s a wonderful morning for breakfast tacos. Ooh, with diced onions and a pinch of cilantro. Um, Tabasco?"
-    >
-      {data.allMarkdownRemark.edge.map(edge => (
-        <Taco key={edge.node.id} edge={edge} />
-      ))}
-    </Tacos>
-  </div>
+  return (
+    <div>
+      <Seo title="TACO TUESDAY" />
+      <Tacos
+        title="Terrific Tacos"
+        description="Every day is taco ipsum tuesday. Fish tacos with cabbage slaw and a side of chips and guac. TACOS!! It’s taco Tuesday Monday. It’s a wonderful morning for breakfast tacos. Ooh, with diced onions and a pinch of cilantro. Um, Tabasco?"
+      >
+        {data.allMarkdownRemark.edge.map(edge => (
+          <Taco key={edge.node.id} edge={edge} />
+        ))}
+      </Tacos>
+    </div>
+  )
 }
