@@ -64,10 +64,7 @@ export default function Layout({ children, title }) {
               </div>
               <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
                 <div className="flex items-center flex-shrink-0 px-4">
-                  <p
-                    className="text-white"
-                    style={{ fontFamily: 'Impact, fantasy' }}
-                  >
+                  <p className="text-white" style={{ fontFamily: 'fantasy' }}>
                     AbsolutelyFlutiful
                   </p>
                 </div>
@@ -117,10 +114,7 @@ export default function Layout({ children, title }) {
         <div className="flex flex-col w-64 bg-blue-900 border-r border-gray-200">
           <div className="flex flex-col flex-1 h-0 pt-5 pb-4 overflow-y-auto">
             <div className="flex items-center flex-shrink-0 px-4">
-              <p
-                className="text-white"
-                style={{ fontFamily: 'Impact, fantasy' }}
-              >
+              <p className="text-white" style={{ fontFamily: 'fantasy' }}>
                 AbsolutelyFlutiful
               </p>
             </div>
@@ -173,7 +167,7 @@ export default function Layout({ children, title }) {
           className="relative z-0 flex flex-col flex-1 pt-2 overflow-y-auto focus:outline-none md:pt-6"
           tabIndex="0"
         >
-          <div className="flex-grow">
+          <div className="flex-grow ">
             <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
               <h1 className="text-2xl font-semibold text-gray-900">{title}</h1>
             </div>
