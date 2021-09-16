@@ -34,7 +34,7 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-transition-group": "^4.4.1",
-    "set-value": "^3.0.2",
+    "set-value": "^4.0.1",
     "shopify-buy": "^2.10.0",
     "tailwindcss": "^1.4.6"
   },
